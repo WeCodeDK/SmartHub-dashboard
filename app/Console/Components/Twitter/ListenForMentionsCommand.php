@@ -22,9 +22,14 @@ class ListenForMentionsCommand extends Command
                 'spatie.be',
                 '@spatie_be',
                 'github.com/spatie',
+                '#laravel',
+                '#csgo'
             ], function (array $tweetProperties) {
                 event(new Mentioned($tweetProperties));
             })
             ->startListening();
+
+
+
     }
 }

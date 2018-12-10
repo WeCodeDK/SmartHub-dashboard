@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -10,7 +11,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'dashboard user',
-            'email' => 'info@spatie.be',
+            'email' => 'info@wecode.dk',
             'password' => bcrypt('secret'),
         ]);
     }

@@ -21,6 +21,7 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         '/temperature',
         '/webhook/github',
+        '/webhook/forge',
         '/pusher/authenticate',
         '/oh-dear-webhooks',
     ];

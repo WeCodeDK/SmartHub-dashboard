@@ -21,8 +21,10 @@
     "stringz": "^0.2.1",
     "tailwindcss": "^0.6.6",
     "twemoji": "^11.2",
+    "twitter": "^1.7.1",
     "vue": "^2.0.1",
-    "vue-save-state": "^1.1.0"
+    "vue-save-state": "^1.1.0",
+    "yarn": "^1.12.3"
   },
   "devDependencies": {
     "chai": "^3.5.0",

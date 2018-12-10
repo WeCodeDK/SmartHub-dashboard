@@ -14,6 +14,9 @@ import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
 import Velo from './components/Velo';
 import TileTimer from './components/TileTimer';
+import BlankTile from './components/BlankTile';
+import Deploys from './components/Deploys';
+import DeployKpi from './components/DeployKpi';
 
 new Vue({
     el: '#dashboard',
@@ -30,9 +33,16 @@ new Vue({
         Uptime,
         Velo,
         TileTimer,
+        BlankTile,
+        Deploys,
+        DeployKpi
     },
 
+
     created() {
+
+        console.log(window.dashboard);
+
         let config = {
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,

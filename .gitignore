@@ -10,3 +10,6 @@ _ide_helper*.php
 /public/mix-manifest.json
 /vendor
 package-lock.json
+/.idea
+/.vscode
+/.vagrant

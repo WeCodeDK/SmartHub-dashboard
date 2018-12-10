@@ -3,6 +3,7 @@
 use App\Http\Middleware\AccessToken;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubWebhookController;
+use App\Http\Controllers\DeployWebhookController;
 use App\Http\Controllers\UpdateTemperatureController;
 
 Route::group(['middleware' => AccessToken::class], function () {
@@ -13,4 +14,6 @@ Route::group(['middleware' => AccessToken::class], function () {
 
 Route::post('/webhook/github', [GitHubWebhookController::class, 'gitRepoReceivedPush']);
 
-Route::ohDearWebhooks('/oh-dear-webhooks');
+Route::post('/webhook/forge', [DeployWebhookController::class, 'forgeDeploy']);
+
+//Route::ohDearWebhooks('/oh-dear-webhooks');
