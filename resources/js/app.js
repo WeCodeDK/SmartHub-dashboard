@@ -41,7 +41,7 @@ new Vue({
 
     created() {
 
-        console.log(window.dashboard);
+        // console.log(window.dashboard);
 
         let config = {
             broadcaster: 'pusher',

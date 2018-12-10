@@ -61328,7 +61328,7 @@ new __WEBPACK_IMPORTED_MODULE_2_vue___default.a({
 
     created: function created() {
 
-        console.log(window.dashboard);
+        // console.log(window.dashboard);
 
         var config = {
             broadcaster: 'pusher',
