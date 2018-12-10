@@ -98,3 +98,7 @@ img,
 svg {
     vertical-align: middle;
 }
+
+.timeline-Header {
+    display: none !important;
+}

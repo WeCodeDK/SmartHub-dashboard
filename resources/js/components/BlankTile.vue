@@ -1,7 +1,13 @@
 <template>
     <tile :position="position" class="z-10"  no-fade>
-        <div  class="absolute pin overflow-hidden p-padding filter-fade-tile">
-            hello world
+        <div  class="absolute pin overflow-hidden p-padding filter-fade-tile flex justify-center" >
+            <div class="text-center flex items-center">
+                <div class="text-xl">
+                    {{emoji}}
+                    <br>
+                    {{text}}
+                </div>
+            </div>
         </div>
     </tile>
 </template>
@@ -16,9 +22,9 @@
             Tile,
         },
 
-       mixins: [echo],
+      // mixins: [echo],
 
-        props: ['position'],
+        props: ['position', 'text', 'emoji'],
 
         data() {
             return {
@@ -30,14 +36,14 @@
         },
 
         methods: {
-
-            getEventHandlers() {
-                return {
-                    'Dashboard.Heartbeat': () => {
-
-                    },
-                };
-            },
+            //
+            // getEventHandlers() {
+            //     return {
+            //         'Dashboard.Heartbeat': () => {
+            //
+            //         },
+            //     };
+            // },
         },
     };
 </script>

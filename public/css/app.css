@@ -719,6 +719,10 @@ svg {
   vertical-align: middle;
 }
 
+.timeline-Header {
+  display: none !important;
+}
+
 @font-face {
   font-family: 'Inter UI';
   font-style: normal;
