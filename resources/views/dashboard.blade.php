@@ -2,7 +2,7 @@
 
 @section('content')
 
-@javascript(compact('pusherKey', 'clientConnectionPath', 'environment'))
+@javascript(compact('pusherKey', 'clientConnectionPath', 'environment', 'pusherCluster'))
 {{-- 5 columns and 12 rows.--}}
 <div id="dashboard">
 

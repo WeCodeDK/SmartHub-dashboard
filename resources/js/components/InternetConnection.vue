@@ -47,6 +47,7 @@ export default {
             return {
                 'Dashboard.Heartbeat': () => {
                     this.lastHeartBeatReceivedAt = moment();
+                    console.log('hearbeat received - '+this.lastHeartBeatReceivedAt.toString());
                 },
             };
         },

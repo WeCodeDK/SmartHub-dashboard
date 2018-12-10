@@ -56,6 +56,13 @@ new Vue({
             config.wsPort = 6001;
         }
 
-        this.echo = new Echo(config);
+        //laravel sockets implementation
+        // this.echo = new Echo(config);
+
+        this.echo = new Echo({
+            broadcaster: 'pusher',
+            key: window.dashboard.pusherKey,
+            cluster: window.dashboard.pusherCluster,
+        });
     },
 });

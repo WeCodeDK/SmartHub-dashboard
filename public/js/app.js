@@ -2027,6 +2027,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return {
                 'Dashboard.Heartbeat': function DashboardHeartbeat() {
                     _this.lastHeartBeatReceivedAt = __WEBPACK_IMPORTED_MODULE_1_moment___default()();
+                    console.log('hearbeat received - ' + _this.lastHeartBeatReceivedAt.toString());
                 }
             };
         }
@@ -61342,7 +61343,14 @@ new __WEBPACK_IMPORTED_MODULE_2_vue___default.a({
             config.wsPort = 6001;
         }
 
-        this.echo = new __WEBPACK_IMPORTED_MODULE_1_laravel_echo___default.a(config);
+        //laravel sockets implementation
+        // this.echo = new Echo(config);
+
+        this.echo = new __WEBPACK_IMPORTED_MODULE_1_laravel_echo___default.a({
+            broadcaster: 'pusher',
+            key: window.dashboard.pusherKey,
+            cluster: window.dashboard.pusherCluster
+        });
     }
 });
 
