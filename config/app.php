@@ -14,7 +14,7 @@ return [
 
     'name' => 'Dashboard',
 
-    'access_token' => env('ACCESS_TOKEN'),
+    'access_token' => env('ACCESS_TOKEN',  'magic'),
 
     /*
     |--------------------------------------------------------------------------
