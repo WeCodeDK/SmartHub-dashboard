@@ -77,6 +77,7 @@
                 //{"status":"success","server":{"id":212437,"name":"DeepLearning"},"site":{"id":661791,"name":"webot"},"commit_hash":"d850f0269c3e1f2470465d99c721c01469435f0a","commit_url":"https://github.com/WeCodeDK/WeBot/commit/d850f0269c3e1f2470465d99c721c01469435f0a","commit_author":"alexander_wecode","commit_message":"pass object by reference"}
                 return {
                     'Deploy.ForgeDeploy': response => {
+                        response.deployProperties.date = moment().toString();
                         this.deploys_waiting_line.push(response.deployProperties)
                         this.processWaitingLine()
                     },
@@ -88,7 +89,7 @@
                     return;
                 }
 
-                this.deploys_waiting_line.date = moment()
+                console.log(this.deploys_waiting_line);
 
                 this.deploys.unshift(this.deploys_waiting_line.shift());
                 this.deploys = this.deploys.slice(0, 12);

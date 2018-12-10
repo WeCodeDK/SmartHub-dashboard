@@ -1954,6 +1954,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             //{"status":"success","server":{"id":212437,"name":"DeepLearning"},"site":{"id":661791,"name":"webot"},"commit_hash":"d850f0269c3e1f2470465d99c721c01469435f0a","commit_url":"https://github.com/WeCodeDK/WeBot/commit/d850f0269c3e1f2470465d99c721c01469435f0a","commit_author":"alexander_wecode","commit_message":"pass object by reference"}
             return {
                 'Deploy.ForgeDeploy': function DeployForgeDeploy(response) {
+                    response.deployProperties.date = __WEBPACK_IMPORTED_MODULE_1_moment___default()().toString();
                     _this.deploys_waiting_line.push(response.deployProperties);
                     _this.processWaitingLine();
                 }
@@ -1964,7 +1965,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return;
             }
 
-            this.deploys_waiting_line.date = __WEBPACK_IMPORTED_MODULE_1_moment___default()();
+            console.log(this.deploys_waiting_line);
 
             this.deploys.unshift(this.deploys_waiting_line.shift());
             this.deploys = this.deploys.slice(0, 12);
