@@ -49686,13 +49686,9 @@ var render = function() {
         "ul",
         { staticClass: "grid", staticStyle: { "grid-auto-rows": "auto" } },
         _vm._l(_vm.images, function(image) {
-          return _c(
-            "li",
-            {
-              staticClass: "overflow-hidden pb-4 mb-4 border-b-2 border-screen"
-            },
-            [_c("div", [_c("img", { attrs: { src: image } })])]
-          )
+          return _c("li", { staticClass: "overflow-hidden pb-4" }, [
+            _c("div", [_c("img", { attrs: { src: image } })])
+          ])
         })
       )
     ]

@@ -2,7 +2,7 @@
     <tile :position="position" class="z-10">
         <ul class="grid" style="grid-auto-rows: auto;">
             <li
-                    class="overflow-hidden pb-4 mb-4 border-b-2 border-screen"
+                    class="overflow-hidden pb-4"
                     v-for="image in images"
             >
                 <div >
