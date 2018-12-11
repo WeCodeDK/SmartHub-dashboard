@@ -24,5 +24,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/webhook/forge',
         '/pusher/authenticate',
         '/oh-dear-webhooks',
+        '/misc/reload',
+        '/misc/push-image'
     ];
 }

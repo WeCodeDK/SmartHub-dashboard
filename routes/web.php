@@ -3,6 +3,7 @@
 use App\Http\Middleware\AccessToken;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubWebhookController;
+use App\Http\Controllers\MiscController;
 use App\Http\Controllers\DeployWebhookController;
 use App\Http\Controllers\UpdateTemperatureController;
 
@@ -17,3 +18,7 @@ Route::post('/webhook/github', [GitHubWebhookController::class, 'gitRepoReceived
 Route::post('/webhook/forge', [DeployWebhookController::class, 'forgeDeploy']);
 
 //Route::ohDearWebhooks('/oh-dear-webhooks');
+
+
+Route::post('/misc/reload', [MiscController::class, 'reload']);
+Route::post('/misc/push-image', [MiscController::class, 'pushImage']);

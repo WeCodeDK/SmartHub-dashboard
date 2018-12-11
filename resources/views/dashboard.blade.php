@@ -21,8 +21,9 @@
         <internet-connection position="e1:e6"></internet-connection>
         <blank-tile  position="e7:e11" text="Weather forecast" emoji="🌈"></blank-tile>
         <blank-tile  position="e12:e16" text="Train times" emoji="🚂"></blank-tile>
-        <blank-tile  position="e17:e24" text="Chatbot pushed gifs" emoji="🎡"></blank-tile>
+        <user-images  position="e17:e24" text="Chatbot pushed gifs" emoji="🎡"></user-images>
     </dashboard>
+    <reload-page></reload-page>
 
 
     {{--<dashboard class="font-sans">--}}

@@ -7,7 +7,7 @@ import Dashboard from './components/Dashboard';
 import Calendar from './components/Calendar';
 import Statistics from './components/Statistics';
 import InternetConnection from './components/InternetConnection';
-import TeamMember from './components/TeamMember';
+// import TeamMember from './components/TeamMember';
 import TimeWeather from './components/TimeWeather';
 import Trains from './components/Trains';
 import Twitter from './components/Twitter';
@@ -17,6 +17,9 @@ import TileTimer from './components/TileTimer';
 import BlankTile from './components/BlankTile';
 import Deploys from './components/Deploys';
 import DeployKpi from './components/DeployKpi';
+import ReloadPage from './components/ReloadPage';
+import UserImages from './components/UserImages.vue'
+
 
 new Vue({
     el: '#dashboard',
@@ -26,7 +29,7 @@ new Vue({
         Calendar,
         Statistics,
         InternetConnection,
-        TeamMember,
+        // TeamMember,
         TimeWeather,
         Trains,
         Twitter,
@@ -35,7 +38,9 @@ new Vue({
         TileTimer,
         BlankTile,
         Deploys,
-        DeployKpi
+        DeployKpi,
+        ReloadPage,
+        UserImages
     },
 
 

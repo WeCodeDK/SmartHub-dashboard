@@ -89,8 +89,6 @@
                     return;
                 }
 
-                console.log(this.deploys_waiting_line);
-
                 this.deploys.unshift(this.deploys_waiting_line.shift());
                 this.deploys = this.deploys.slice(0, 12);
 
