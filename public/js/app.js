@@ -1946,7 +1946,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     created: function created() {},
 
-
     methods: {
         getEventHandlers: function getEventHandlers() {
             var _this = this;
@@ -1972,6 +1971,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return {
                 cacheKey: 'deploys'
             };
+        },
+        nameFormat: function nameFormat(name) {
+            return name.replace(/<.*>/, '');
         }
     }
 });
@@ -49620,7 +49622,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", [
                     _c("div", { staticClass: "text-sm" }, [
-                      _vm._v("@" + _vm._s(deploy.commit_author))
+                      _vm._v("@" + _vm._s(_vm.nameFormat(deploy.commit_author)))
                     ]),
                     _vm._v(" "),
                     _c("div", {

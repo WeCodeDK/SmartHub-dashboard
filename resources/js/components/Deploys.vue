@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="text-sm">@{{deploy.commit_author}}</div>
+                        <div class="text-sm">@{{nameFormat(deploy.commit_author)}}</div>
                         <div  v-html="deploy.commit_message"></div>
                         <div class="mt-1 text-xs text-dimmed">
                             <relative-date :moment="deploy.date"></relative-date>
@@ -70,7 +70,6 @@
         created() {
 
         },
-
         methods: {
 
             getEventHandlers() {
@@ -98,6 +97,9 @@
                     cacheKey: 'deploys',
                 };
             },
+            nameFormat(name){
+                return name.replace(/<.*>/, '')
+            }
         },
     };
 </script>
