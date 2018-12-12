@@ -2035,7 +2035,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return {
                 'Dashboard.Heartbeat': function DashboardHeartbeat() {
                     _this.lastHeartBeatReceivedAt = __WEBPACK_IMPORTED_MODULE_1_moment___default()();
-                    console.log('hearbeat received - ' + _this.lastHeartBeatReceivedAt.toString());
+                    // console.log('hearbeat received - '+this.lastHeartBeatReceivedAt.toString());
                 }
             };
         }
