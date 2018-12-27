@@ -1,92 +1,90 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
-            <div class="flex">
-                <div
-                    class="grid place-center w-10 h-10 rounded-full"
-                    style="background-color: rgba(255, 255, 255, .9)"
-                >
-                    <div class="text-3xl leading-none -mt-1" v-html="emoji('🚃')" />
+        <ul class="grid" style="grid-auto-rows: auto;">
+            <li
+                    class="overflow-hidden pb-4 mb-4 border-b-2 border-screen"
+                    v-for="trains in trainConnections"
+            >
+                <div class="markup grid" style="grid-auto-rows: auto">
+                    <div class="w-full text-md mb-1">{{trains[0].legs.destination.name}}</div>
+                    <div class="flex">
+                        <div class="text-sm w-1/4">
+                            <p>{{trainType(trains[0].legs.type)}}</p>
+                            <p>⏱️</p>
+                            <p>🔚</p>
+                        </div>
+                        <div v-for="train in trains" class="text-sm w-1/4">
+                            <div class="text-center margin-bottom-less">
+                                <p class="text-xxs mb-1">{{train.legs.name}}</p>
+                                <p class="text-md mb-1">{{timeFormat(train.departure.date)}}</p>
+                                <p class="text-md">{{timeFormat(train.arrival.date)}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="ml-2">{{ trainConnections.name }}</h1>
-            </div>
-            <div class="align-self-center grid gap-8" style="grid-auto-rows: auto;">
-                <div v-for="trainConnection in trainConnections">
-                    <h2 class="uppercase">{{ trainConnection.label }}</h2>
-                    <ul class="mt-padding">
-                        <li
-                            v-for="train in trainConnection.trains.slice(0, maxTrains)"
-                            :class="{
-                                'line-through': train.canceled,
-                                'text-danger': train.canceled,
-                            }"
-                        >
-                            <span class="mr-2" v-html="train.station" />
-                            <span
-                                v-if="!train.canceled && train.delay > 0"
-                                class="ml-auto mr-2 font-bold variant-tabular"
-                                :class="{ 'text-danger': train.delay > 0 }"
-                                v-html="`+${train.delay}m`"
-                            />
-                            <span
-                                class="flex-none font-bold text-right variant-tabular"
-                                v-html="formatTime(train.time)"
-                            />
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+            </li>
+        </ul>
     </tile>
 </template>
 
 <script>
-import { emoji, formatTime } from '../helpers';
-import echo from '../mixins/echo';
-import Tile from './atoms/Tile';
-import saveState from 'vue-save-state';
+    import {emoji, formatTime} from '../helpers';
+    import echo from '../mixins/echo';
+    import Tile from './atoms/Tile';
+    import saveState from 'vue-save-state';
+    import moment from 'moment';
 
-export default {
-    components: {
-        Tile,
-    },
-
-    mixins: [echo, saveState],
-
-    props: {
-        position: {
-            type: String,
+    export default {
+        components: {
+            Tile,
         },
-        maxTrains: {
-            type: Number,
-            default: 5
+
+        mixins: [echo, saveState],
+
+        props: {
+            position: {
+                type: String,
+            },
         },
-    },
 
-    data() {
-        return {
-            trainConnections: [],
-        };
-    },
-
-    methods: {
-        emoji,
-        formatTime,
-
-        getEventHandlers() {
+        data() {
             return {
-                'Trains.TrainConnectionsFetched': response => {
-                    console.log(response);
-                    this.trainConnections = response.trainConnections;
-                },
+                trainConnections: [],
             };
         },
 
-        getSaveStateConfig() {
-            return {
-                cacheKey: 'trains',
-            };
+        methods: {
+            emoji,
+            formatTime,
+
+            getEventHandlers() {
+                return {
+                    'Trains.TrainDataFetched': response => {
+                        this.trainConnections = response.trainData;
+                    },
+                };
+            },
+
+            getSaveStateConfig() {
+                return {
+                    cacheKey: 'trains',
+                };
+            },
+
+            timeFormat(date){
+                var date = moment(date).format('HH:mm');
+                return date;
+            },
+
+            trainType(type)
+            {
+                if(type == 'REG') return '🚂';
+                if(type == 'S') return '🚃';
+                if(type == 'REG') return 'Ⓜ️';
+
+                 return 'train';
+            }
         },
-    },
-};
+
+    };
 </script>

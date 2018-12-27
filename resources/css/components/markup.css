@@ -24,3 +24,14 @@
 .markup li:last-child {
     @apply border-0;
 }
+.margin-bottom-less{
+    a,p,b,h1,h2,h3,h4,h5,h6{
+        margin-bottom: 0;
+    }
+}
+
+.margin-bottom-less{
+    p{
+        padding: 1px 0;
+    }
+}

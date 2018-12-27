@@ -5,22 +5,22 @@
                     class="overflow-hidden pb-4 mb-4 border-b-2 border-screen"
                     v-for="deploy in deploys"
             >
-                <div class="markup grid gap-padding" style="grid-auto-rows: auto">
+                <div class="markup grid " style="grid-auto-rows: auto">
                     <div
-                            class="grid gap-2 items-center w-full"
+                            class="grid gap-2 items-center w-full pb-1"
                             style="grid-template-columns: auto 1fr"
                     >
                         <div v-if="deploy.status == 'success'">👍</div>
                         <div v-else="deploy.status == 'success'">👎</div>
                         <div class="leading-tight min-w-0">
-                            <h2 class="truncate" v-html="deploy.site.name"></h2>
-                            <div class="truncate text-sm" v-html="deploy.server.name"></div>
+                            <div class="truncate text-xs" v-html="deploy.site.name"></div>
+                            <div class="truncate text-xxs" v-html="deploy.server.name"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="text-sm">@{{nameFormat(deploy.commit_author)}}</div>
-                        <div  v-html="deploy.commit_message"></div>
-                        <div class="mt-1 text-xs text-dimmed">
+                        <div class="text-xxs">@{{nameFormat(deploy.commit_author)}}</div>
+                        <div class="text-xs"  v-html="deploy.commit_message"></div>
+                        <div class="mt-1 text-xxs text-dimmed">
                             <relative-date :moment="deploy.date"></relative-date>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                     />
                     <div
                             v-if="deploy.hasQuote"
-                            class="py-2 pl-2 text-xs text-dimmed border-l-2 border-screen"
+                            class="py-2 pl-2 text-xxs text-dimmed border-l-2 border-screen"
                             v-html="deploy.quote.html"
                     ></div>
                 </div>

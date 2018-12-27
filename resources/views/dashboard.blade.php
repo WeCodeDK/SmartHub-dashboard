@@ -19,8 +19,7 @@
         {{--<blank-tile  position="d17:d24"></blank-tile>--}}
         <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Europe/Copenhagen" weather-city="Copenhagen"></time-weather>
         <internet-connection position="e1:e6"></internet-connection>
-        <blank-tile  position="e7:e11" text="Weather forecast" emoji="🌈"></blank-tile>
-        <blank-tile  position="e12:e16" text="Train times" emoji="🚂"></blank-tile>
+        <trains  position="e7:e16" ></trains>
         <user-images  position="e17:e24" text="Chatbot pushed gifs" emoji="🎡"></user-images>
     </dashboard>
     <reload-page></reload-page>

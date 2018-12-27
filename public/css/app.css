@@ -865,6 +865,10 @@ svg {
   justify-items: center;
 }
 
+.text-xxs {
+  font-size: .5rem;
+}
+
 .markup h1 {
   font-weight: 500;
   font-size: .875rem;
@@ -899,6 +903,26 @@ svg {
 
 .markup li:last-child {
   border-width: 0;
+}
+
+.margin-bottom-less {
+  a,
+  p,
+  b,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+  }
+}
+
+.margin-bottom-less {
+  p {
+    padding: 1px 0;
+  }
 }
 
 .variant-tabular {

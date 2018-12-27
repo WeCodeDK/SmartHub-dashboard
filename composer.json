@@ -20,8 +20,8 @@
         "knplabs/github-api": "^2.4",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "~1.0",
-        "ohdearapp/laravel-ohdear-webhooks": "^1.0",
         "nunomaduro/collision": "~2.0",
+        "ohdearapp/laravel-ohdear-webhooks": "^1.0",
         "pda/pheanstalk": "^3.1",
         "php-http/guzzle6-adapter": "^1.1",
         "pusher/pusher-php-server": "^3.0",
@@ -59,6 +59,8 @@
             "tests/TestCase.php"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "format": [
             "vendor/bin/php-cs-fixer fix"

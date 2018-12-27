@@ -1819,6 +1819,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -2479,6 +2481,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__atoms_Tile___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__atoms_Tile__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_save_state__ = __webpack_require__("./node_modules/vue-save-state/dist/save-state.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_save_state___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_save_state__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
 //
 //
 //
@@ -2508,19 +2512,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -2537,10 +2529,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: {
         position: {
             type: String
-        },
-        maxTrains: {
-            type: Number,
-            default: 5
         }
     },
 
@@ -2559,9 +2547,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             return {
-                'Trains.TrainConnectionsFetched': function TrainsTrainConnectionsFetched(response) {
-                    console.log(response);
-                    _this.trainConnections = response.trainConnections;
+                'Trains.TrainDataFetched': function TrainsTrainDataFetched(response) {
+                    _this.trainConnections = response.trainData;
                 }
             };
         },
@@ -2569,8 +2556,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return {
                 cacheKey: 'trains'
             };
+        },
+        timeFormat: function timeFormat(date) {
+            var date = __WEBPACK_IMPORTED_MODULE_4_moment___default()(date).format('HH:mm');
+            return date;
+        },
+        trainType: function trainType(type) {
+            if (type == 'REG') return '🚂';
+            if (type == 'S') return '🚃';
+            if (type == 'REG') return 'Ⓜ️';
+
+            return 'train';
         }
     }
+
 });
 
 /***/ }),
@@ -49119,90 +49118,69 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("tile", { attrs: { position: _vm.position } }, [
     _c(
-      "div",
-      {
-        staticClass: "grid gap-padding h-full markup",
-        staticStyle: { "grid-template-rows": "auto 1fr" }
-      },
-      [
-        _c("div", { staticClass: "flex" }, [
-          _c(
-            "div",
-            {
-              staticClass: "grid place-center w-10 h-10 rounded-full",
-              staticStyle: { "background-color": "rgba(255, 255, 255, .9)" }
-            },
-            [
-              _c("div", {
-                staticClass: "text-3xl leading-none -mt-1",
-                domProps: { innerHTML: _vm._s(_vm.emoji("🚃")) }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("h1", { staticClass: "ml-2" }, [
-            _vm._v(_vm._s(_vm.trainConnections.name))
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "align-self-center grid gap-8",
-            staticStyle: { "grid-auto-rows": "auto" }
-          },
-          _vm._l(_vm.trainConnections, function(trainConnection) {
-            return _c("div", [
-              _c("h2", { staticClass: "uppercase" }, [
-                _vm._v(_vm._s(trainConnection.label))
-              ]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                { staticClass: "mt-padding" },
-                _vm._l(trainConnection.trains.slice(0, _vm.maxTrains), function(
-                  train
-                ) {
-                  return _c(
-                    "li",
-                    {
-                      class: {
-                        "line-through": train.canceled,
-                        "text-danger": train.canceled
-                      }
-                    },
-                    [
-                      _c("span", {
-                        staticClass: "mr-2",
-                        domProps: { innerHTML: _vm._s(train.station) }
-                      }),
+      "ul",
+      { staticClass: "grid", staticStyle: { "grid-auto-rows": "auto" } },
+      _vm._l(_vm.trainConnections, function(trains) {
+        return _c(
+          "li",
+          { staticClass: "overflow-hidden pb-4 mb-4 border-b-2 border-screen" },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "markup grid",
+                staticStyle: { "grid-auto-rows": "auto" }
+              },
+              [
+                _c("div", { staticClass: "w-full text-md mb-1" }, [
+                  _vm._v(_vm._s(trains[0].legs.destination.name))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "flex" },
+                  [
+                    _c("div", { staticClass: "text-sm w-1/4" }, [
+                      _c("p", [
+                        _vm._v(_vm._s(_vm.trainType(trains[0].legs.type)))
+                      ]),
                       _vm._v(" "),
-                      !train.canceled && train.delay > 0
-                        ? _c("span", {
-                            staticClass:
-                              "ml-auto mr-2 font-bold variant-tabular",
-                            class: { "text-danger": train.delay > 0 },
-                            domProps: {
-                              innerHTML: _vm._s("+" + train.delay + "m")
-                            }
-                          })
-                        : _vm._e(),
+                      _c("p", [_vm._v("⏱️")]),
                       _vm._v(" "),
-                      _c("span", {
-                        staticClass:
-                          "flex-none font-bold text-right variant-tabular",
-                        domProps: {
-                          innerHTML: _vm._s(_vm.formatTime(train.time))
-                        }
-                      })
-                    ]
-                  )
-                })
-              )
-            ])
-          })
+                      _c("p", [_vm._v("🔚")])
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(trains, function(train) {
+                      return _c("div", { staticClass: "text-sm w-1/4" }, [
+                        _c(
+                          "div",
+                          { staticClass: "text-center margin-bottom-less" },
+                          [
+                            _c("p", { staticClass: "text-xxs mb-1" }, [
+                              _vm._v(_vm._s(train.legs.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "text-md mb-1" }, [
+                              _vm._v(
+                                _vm._s(_vm.timeFormat(train.departure.date))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "text-md" }, [
+                              _vm._v(_vm._s(_vm.timeFormat(train.arrival.date)))
+                            ])
+                          ]
+                        )
+                      ])
+                    })
+                  ],
+                  2
+                )
+              ]
+            )
+          ]
         )
-      ]
+      })
     )
   ])
 }
@@ -49430,23 +49408,41 @@ var render = function() {
     "tile",
     { staticClass: "z-10", attrs: { position: _vm.position, "no-fade": "" } },
     [
-      _c(
-        "div",
-        {
-          staticClass: "absolute pin overflow-hidden p-padding filter-fade-tile"
-        },
-        [
-          _c("div", { staticClass: "text-xl" }, [_vm._v(" Deploy stats 📡")]),
+      _c("div", { staticClass: "absolute pin overflow-hidden p-padding " }, [
+        _c("div", { staticClass: "text-lg text-center w-full mb-2" }, [
+          _vm._v(" Deploy stats 📡")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex" }, [
+          _c("div", { staticClass: "text-sm w-1/4 text-center" }, [
+            _c("span", { staticClass: "text-xs" }, [_vm._v("Yearly")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" " + _vm._s(_vm.kpi.yearly))
+          ]),
           _vm._v(" "),
-          _c("div", [_vm._v("Yearly: " + _vm._s(_vm.kpi.yearly))]),
+          _c("div", { staticClass: "text-sm w-1/4 text-center" }, [
+            _c("span", { staticClass: "text-xs" }, [_vm._v("Monthly")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" " + _vm._s(_vm.kpi.monthly))
+          ]),
           _vm._v(" "),
-          _c("div", [_vm._v("Monthly: " + _vm._s(_vm.kpi.monthly))]),
+          _c("div", { staticClass: "text-sm w-1/4 text-center" }, [
+            _c("span", { staticClass: "text-xs" }, [_vm._v("Weekly")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" " + _vm._s(_vm.kpi.weekly))
+          ]),
           _vm._v(" "),
-          _c("div", [_vm._v("Weekly: " + _vm._s(_vm.kpi.weekly))]),
-          _vm._v(" "),
-          _c("div", [_vm._v("Daily: " + _vm._s(_vm.kpi.daily))])
-        ]
-      )
+          _c("div", { staticClass: "text-sm w-1/4 text-center" }, [
+            _c("span", { staticClass: "text-xs" }, [_vm._v("Daily")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" " + _vm._s(_vm.kpi.daily))
+          ])
+        ])
+      ])
     ]
   )
 }
@@ -49591,14 +49587,14 @@ var render = function() {
               _c(
                 "div",
                 {
-                  staticClass: "markup grid gap-padding",
+                  staticClass: "markup grid ",
                   staticStyle: { "grid-auto-rows": "auto" }
                 },
                 [
                   _c(
                     "div",
                     {
-                      staticClass: "grid gap-2 items-center w-full",
+                      staticClass: "grid gap-2 items-center w-full pb-1",
                       staticStyle: { "grid-template-columns": "auto 1fr" }
                     },
                     [
@@ -49607,13 +49603,13 @@ var render = function() {
                         : _c("div", [_vm._v("👎")]),
                       _vm._v(" "),
                       _c("div", { staticClass: "leading-tight min-w-0" }, [
-                        _c("h2", {
-                          staticClass: "truncate",
+                        _c("div", {
+                          staticClass: "truncate text-xs",
                           domProps: { innerHTML: _vm._s(deploy.site.name) }
                         }),
                         _vm._v(" "),
                         _c("div", {
-                          staticClass: "truncate text-sm",
+                          staticClass: "truncate text-xxs",
                           domProps: { innerHTML: _vm._s(deploy.server.name) }
                         })
                       ])
@@ -49621,17 +49617,18 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", [
-                    _c("div", { staticClass: "text-sm" }, [
+                    _c("div", { staticClass: "text-xxs" }, [
                       _vm._v("@" + _vm._s(_vm.nameFormat(deploy.commit_author)))
                     ]),
                     _vm._v(" "),
                     _c("div", {
+                      staticClass: "text-xs",
                       domProps: { innerHTML: _vm._s(deploy.commit_message) }
                     }),
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "mt-1 text-xs text-dimmed" },
+                      { staticClass: "mt-1 text-xxs text-dimmed" },
                       [_c("relative-date", { attrs: { moment: deploy.date } })],
                       1
                     )
@@ -49648,7 +49645,7 @@ var render = function() {
                   deploy.hasQuote
                     ? _c("div", {
                         staticClass:
-                          "py-2 pl-2 text-xs text-dimmed border-l-2 border-screen",
+                          "py-2 pl-2 text-xxs text-dimmed border-l-2 border-screen",
                         domProps: { innerHTML: _vm._s(deploy.quote.html) }
                       })
                     : _vm._e()

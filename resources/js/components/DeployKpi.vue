@@ -1,11 +1,13 @@
 <template>
     <tile :position="position" class="z-10"  no-fade>
-        <div  class="absolute pin overflow-hidden p-padding filter-fade-tile">
-            <div class="text-xl"> Deploy stats 📡</div>
-            <div>Yearly: {{kpi.yearly}}</div>
-            <div>Monthly: {{kpi.monthly}}</div>
-            <div>Weekly: {{kpi.weekly}}</div>
-            <div>Daily: {{kpi.daily}}</div>
+        <div  class="absolute pin overflow-hidden p-padding ">
+            <div class="text-lg text-center w-full mb-2"> Deploy stats 📡</div>
+            <div class="flex">
+                <div class="text-sm w-1/4 text-center"><span class="text-xs">Yearly</span> <br> {{kpi.yearly}}</div>
+                <div class="text-sm w-1/4 text-center"><span class="text-xs">Monthly</span> <br> {{kpi.monthly}}</div>
+                <div class="text-sm w-1/4 text-center"><span class="text-xs">Weekly</span> <br> {{kpi.weekly}}</div>
+                <div class="text-sm w-1/4 text-center"><span class="text-xs">Daily</span> <br> {{kpi.daily}}</div>
+            </div>
         </div>
     </tile>
 </template>
