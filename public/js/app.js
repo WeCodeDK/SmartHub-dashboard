@@ -49626,8 +49626,7 @@ var render = function() {
               autoplay: true,
               autoplayTimeout: 5000,
               loop: true,
-              paginationEnabled: false,
-              speed: 1500
+              paginationEnabled: false
             }
           },
           _vm._l(_vm.lunch_split, function(lunches) {

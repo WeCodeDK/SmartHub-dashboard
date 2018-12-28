@@ -1,7 +1,7 @@
 <template>
     <tile :position="position">
         <div >
-            <carousel :per-page="1" :autoplay="true" :autoplayTimeout="5000" :loop="true" :paginationEnabled="false" :speed="1500">
+            <carousel :per-page="1" :autoplay="true" :autoplayTimeout="5000" :loop="true" :paginationEnabled="false" >
                 <slide v-for="lunches in lunch_split"  v-bind:key="lunches[0].id">
                     <div class="lunch-box text-center" v-for="lunch in lunches"  v-bind:key="lunch.id">
                         <h2 class="mb-0 text-sm text-center">{{lunch.headline}}<span class="ml-2 text-md" v-html="specifyEmoji(lunch.headline)"></span></h2>
