@@ -1,6 +1,6 @@
 <template>
     <tile :position="position">
-        <div >
+        <div class="justify-items-center h-full flex items-center" >
             <carousel :per-page="1" :autoplay="true" :autoplayTimeout="5000" :loop="true" :paginationEnabled="false" >
                 <slide v-for="lunches in lunch_split"  v-bind:key="lunches[0].id">
                     <div class="lunch-box text-center" v-for="lunch in lunches"  v-bind:key="lunch.id">
@@ -92,5 +92,9 @@
 <style>
     .lunch-box{
         padding: 0.7rem 0;
+    }
+
+    .VueCarousel{
+        width: 100%;
     }
 </style>

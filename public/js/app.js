@@ -4053,7 +4053,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.lunch-box {\n  padding: .7rem 0;\n}\n", ""]);
+exports.push([module.i, "\n.lunch-box {\n  padding: .7rem 0;\n}\n.VueCarousel {\n  width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -49617,6 +49617,7 @@ var render = function() {
   return _c("tile", { attrs: { position: _vm.position } }, [
     _c(
       "div",
+      { staticClass: "justify-items-center h-full flex items-center" },
       [
         _c(
           "carousel",
