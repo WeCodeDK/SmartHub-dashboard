@@ -2622,7 +2622,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -49258,77 +49257,92 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("tile", { attrs: { position: _vm.position } }, [
     _c(
-      "ul",
-      { staticClass: "grid", staticStyle: { "grid-auto-rows": "auto" } },
-      _vm._l(_vm.trainConnections, function(trains) {
-        return _c(
-          "li",
-          { staticClass: "overflow-hidden pb-4 mb-4 border-b-2 border-screen" },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "markup grid",
-                staticStyle: { "grid-auto-rows": "auto" }
-              },
-              [
-                _c("div", { staticClass: "w-full text-md mb-1" }, [
-                  _vm._v(_vm._s(trains[0].legs.destination.name))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "flex" },
-                  [
-                    _c("div", { staticClass: "text-sm w-1/4" }, [
-                      _c("p", {
-                        domProps: {
-                          innerHTML: _vm._s(_vm.trainType(trains[0].legs.type))
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        { domProps: { innerHTML: _vm._s(_vm.emoji("⏱")) } },
-                        [_vm._v("️")]
-                      ),
-                      _vm._v(" "),
-                      _c("p", {
-                        domProps: { innerHTML: _vm._s(_vm.emoji("🔚")) }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(trains, function(train) {
-                      return _c("div", { staticClass: "text-sm w-1/4" }, [
+      "div",
+      { staticClass: "justify-items-center h-full flex items-center" },
+      [
+        _c(
+          "carousel",
+          {
+            attrs: {
+              "per-page": 1,
+              autoplay: true,
+              autoplayTimeout: 8000,
+              loop: true,
+              paginationEnabled: false
+            }
+          },
+          _vm._l(_vm.trainConnections, function(trains) {
+            return _c("slide", { key: trains[0].arrival.date }, [
+              _c(
+                "div",
+                {
+                  staticClass: "markup grid",
+                  staticStyle: { "grid-auto-rows": "auto" }
+                },
+                [
+                  _c("div", { staticClass: "w-full text-md mb-1" }, [
+                    _vm._v(_vm._s(trains[0].legs.destination.name))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "flex" },
+                    [
+                      _c("div", { staticClass: "text-sm w-1/4" }, [
+                        _c("p", {
+                          domProps: {
+                            innerHTML: _vm._s(
+                              _vm.trainType(trains[0].legs.type)
+                            )
+                          }
+                        }),
+                        _vm._v(" "),
                         _c(
-                          "div",
-                          { staticClass: "text-center margin-bottom-less" },
-                          [
-                            _c("p", { staticClass: "text-xxs mb-1" }, [
-                              _vm._v(_vm._s(train.legs.name))
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "text-md mb-1" }, [
-                              _vm._v(
-                                _vm._s(_vm.timeFormat(train.departure.date))
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "text-md" }, [
-                              _vm._v(_vm._s(_vm.timeFormat(train.arrival.date)))
-                            ])
-                          ]
-                        )
-                      ])
-                    })
-                  ],
-                  2
-                )
-              ]
-            )
-          ]
+                          "p",
+                          { domProps: { innerHTML: _vm._s(_vm.emoji("⏱")) } },
+                          [_vm._v("️")]
+                        ),
+                        _vm._v(" "),
+                        _c("p", {
+                          domProps: { innerHTML: _vm._s(_vm.emoji("🔚")) }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(trains, function(train) {
+                        return _c("div", { staticClass: "text-sm w-1/4" }, [
+                          _c(
+                            "div",
+                            { staticClass: "text-center margin-bottom-less" },
+                            [
+                              _c("p", { staticClass: "text-xxs mb-1" }, [
+                                _vm._v(_vm._s(train.legs.name))
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "text-md mb-1" }, [
+                                _vm._v(
+                                  _vm._s(_vm.timeFormat(train.departure.date))
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "text-md" }, [
+                                _vm._v(
+                                  _vm._s(_vm.timeFormat(train.arrival.date))
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      })
+                    ],
+                    2
+                  )
+                ]
+              )
+            ])
+          })
         )
-      })
+      ],
+      1
     )
   ])
 }
