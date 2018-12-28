@@ -9,7 +9,7 @@
     <dashboard class="font-sans">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a24"></twitter>
         <blank-tile  position="b1:b8"  text="Uptime robot" emoji="🆘"></blank-tile>
-        <blank-tile  position="b9:b16" text="Lunch" emoji="🍱"></blank-tile>
+        <lunch  position="b9:b16" ></lunch>
         <blank-tile  position="b17:b24" text="Music" emoji="🎧"></blank-tile>
         <deploy-kpi  position="c1:c4" ></deploy-kpi>
         <deploys  position="c5:c16"></deploys>

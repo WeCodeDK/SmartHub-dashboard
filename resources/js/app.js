@@ -10,6 +10,7 @@ import InternetConnection from './components/InternetConnection';
 // import TeamMember from './components/TeamMember';
 import TimeWeather from './components/TimeWeather';
 import Trains from './components/Trains';
+import Lunch from './components/Lunch';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
 import Velo from './components/Velo';
@@ -32,6 +33,7 @@ new Vue({
         // TeamMember,
         TimeWeather,
         Trains,
+        Lunch,
         Twitter,
         Uptime,
         Velo,

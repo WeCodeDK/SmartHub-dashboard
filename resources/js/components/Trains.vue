@@ -9,9 +9,9 @@
                     <div class="w-full text-md mb-1">{{trains[0].legs.destination.name}}</div>
                     <div class="flex">
                         <div class="text-sm w-1/4">
-                            <p>{{trainType(trains[0].legs.type)}}</p>
-                            <p>⏱️</p>
-                            <p>🔚</p>
+                            <p v-html="trainType(trains[0].legs.type)"></p>
+                            <p v-html="emoji('⏱')">️</p>
+                            <p v-html="emoji('🔚')"></p>
                         </div>
                         <div v-for="train in trains" class="text-sm w-1/4">
                             <div class="text-center margin-bottom-less">
@@ -78,11 +78,13 @@
 
             trainType(type)
             {
-                if(type == 'REG') return '🚂';
-                if(type == 'S') return '🚃';
-                if(type == 'REG') return 'Ⓜ️';
+                var emoji = '🚆';
 
-                 return 'train';
+                if(type == 'REG') emoji = '🚂';
+                if(type == 'S') emoji = '🚃';
+                if(type == 'REG') emoji = 'Ⓜ️';
+
+                 return this.emoji(emoji);
             }
         },
 
