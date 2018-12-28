@@ -110,10 +110,15 @@ class Leg
     public static function createFromArray(array $data)
     {
         $obj = new self();
-        $obj->name = $data['name'];
-        $obj->type = $data['type'];
-        $obj->origin = Place::createFromArray($data['Origin']);
-        $obj->destination = Place::createFromArray($data['Destination']);
+
+//        if(!isset($data['name'])){
+//            dd($data);
+//        };
+
+        $obj->name = isset($data['name']) ? $data['name'] : 'No name';
+        $obj->type = isset($data['type']) ? $data['type'] : 'No type';
+        $obj->origin = isset($data['Origin']) ? Place::createFromArray($data['Origin']) : null;
+        $obj->destination = isset($data['Destination']) ? Place::createFromArray($data['Destination']) : null;
 
         if (isset($data['Notes'], $data['Notes']['text'])) {
             $obj->notes = self::setNotes($data['Notes']['text'], $data['type']);

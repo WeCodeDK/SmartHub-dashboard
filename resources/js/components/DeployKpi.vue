@@ -1,7 +1,7 @@
 <template>
     <tile :position="position" class="z-10"  no-fade>
         <div  class="absolute pin overflow-hidden p-padding ">
-            <div class="text-lg text-center w-full mb-2"> Deploy stats 📡</div>
+            <div class="text-lg text-center w-full mb-2"> Deploy stats <span v-html="emoji('📡')"></span></div>
             <div class="flex">
                 <div class="text-sm w-1/4 text-center"><span class="text-xs">Yearly</span> <br> {{kpi.yearly}}</div>
                 <div class="text-sm w-1/4 text-center"><span class="text-xs">Monthly</span> <br> {{kpi.monthly}}</div>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+    import {emoji} from '../helpers';
     import echo from '../mixins/echo';
     import moment from 'moment';
     import Tile from './atoms/Tile';
@@ -38,6 +39,7 @@
         },
 
         methods: {
+            emoji,
 
             getEventHandlers() {
                 return {

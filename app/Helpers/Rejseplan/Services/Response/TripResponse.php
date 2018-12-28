@@ -72,10 +72,12 @@ class TripResponse
             $legs[] = $legData;
 
             if (++$legNumber === 1) {
-                $firstLegTime = $legData->getOrigin()->getDate();
+                $ld = $legData->getOrigin();
+                $firstLegTime = $ld ? $ld->getDate() : null;
             }
 
-            $lastLegTime = $legData->getDestination()->getDate();
+            $ld = $legData->getDestination();
+            $lastLegTime = $ld ? $ld->getDate() : null;
         //}
 
         $obj->legs = $legs;

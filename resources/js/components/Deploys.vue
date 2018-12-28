@@ -10,8 +10,8 @@
                             class="grid gap-2 items-center w-full pb-1"
                             style="grid-template-columns: auto 1fr"
                     >
-                        <div v-if="deploy.status == 'success'">👍</div>
-                        <div v-else="deploy.status == 'success'">👎</div>
+                        <div v-if="deploy.status == 'success'" v-html="emoji('👍')"></div>
+                        <div v-else="deploy.status == 'success'" v-html="emoji('👎')"></div>
                         <div class="leading-tight min-w-0">
                             <div class="truncate text-xs" v-html="deploy.site.name"></div>
                             <div class="truncate text-xxs" v-html="deploy.server.name"></div>
@@ -47,7 +47,7 @@
     import Tile from './atoms/Tile';
     import saveState from 'vue-save-state';
     import RelativeDate from './atoms/RelativeDate';
-    import { diffInSeconds } from '../helpers';
+    import { diffInSeconds, emoji } from '../helpers';
 
     export default {
         components: {
@@ -71,6 +71,7 @@
 
         },
         methods: {
+            emoji,
 
             getEventHandlers() {
                 //{"status":"success","server":{"id":212437,"name":"DeepLearning"},"site":{"id":661791,"name":"webot"},"commit_hash":"d850f0269c3e1f2470465d99c721c01469435f0a","commit_url":"https://github.com/WeCodeDK/WeBot/commit/d850f0269c3e1f2470465d99c721c01469435f0a","commit_author":"alexander_wecode","commit_message":"pass object by reference"}

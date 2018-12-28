@@ -3,9 +3,8 @@
         <div  class="absolute pin overflow-hidden p-padding filter-fade-tile flex justify-center" >
             <div class="text-center flex items-center">
                 <div class="text-xl">
-                    {{emoji}}
-                    <br>
-                    {{text}}
+                    <p v-html="emoji(icon)"></p>
+                    <p v-html="text"></p>
                 </div>
             </div>
         </div>
@@ -13,6 +12,7 @@
 </template>
 
 <script>
+    import {emoji} from '../helpers';
     import echo from '../mixins/echo';
     import moment from 'moment';
     import Tile from './atoms/Tile';
@@ -24,7 +24,7 @@
 
       // mixins: [echo],
 
-        props: ['position', 'text', 'emoji'],
+        props: ['position', 'text', 'icon'],
 
         data() {
             return {
@@ -36,6 +36,7 @@
         },
 
         methods: {
+            emoji,
             //
             // getEventHandlers() {
             //     return {

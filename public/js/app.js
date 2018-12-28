@@ -1620,11 +1620,12 @@ module.exports = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_echo__ = __webpack_require__("./resources/js/mixins/echo.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__("./node_modules/moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__atoms_Tile__ = __webpack_require__("./resources/js/components/atoms/Tile.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__atoms_Tile___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__atoms_Tile__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__("./resources/js/helpers.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_echo__ = __webpack_require__("./resources/js/mixins/echo.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__atoms_Tile__ = __webpack_require__("./resources/js/components/atoms/Tile.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__atoms_Tile___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__atoms_Tile__);
 //
 //
 //
@@ -1638,7 +1639,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
+
 
 
 
@@ -1646,12 +1647,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
-        Tile: __WEBPACK_IMPORTED_MODULE_2__atoms_Tile___default.a
+        Tile: __WEBPACK_IMPORTED_MODULE_3__atoms_Tile___default.a
     },
 
     // mixins: [echo],
 
-    props: ['position', 'text', 'emoji'],
+    props: ['position', 'text', 'icon'],
 
     data: function data() {
         return {};
@@ -1660,6 +1661,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        emoji: __WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* emoji */]
         //
         // getEventHandlers() {
         //     return {
@@ -1800,13 +1802,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_echo__ = __webpack_require__("./resources/js/mixins/echo.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__("./node_modules/moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__atoms_Tile__ = __webpack_require__("./resources/js/components/atoms/Tile.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__atoms_Tile___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__atoms_Tile__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_save_state__ = __webpack_require__("./node_modules/vue-save-state/dist/save-state.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_save_state___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_save_state__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__("./resources/js/helpers.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_echo__ = __webpack_require__("./resources/js/mixins/echo.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__atoms_Tile__ = __webpack_require__("./resources/js/components/atoms/Tile.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__atoms_Tile___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__atoms_Tile__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_save_state__ = __webpack_require__("./node_modules/vue-save-state/dist/save-state.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_save_state___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_save_state__);
 //
 //
 //
@@ -1821,6 +1824,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -1829,10 +1833,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
-        Tile: __WEBPACK_IMPORTED_MODULE_2__atoms_Tile___default.a
+        Tile: __WEBPACK_IMPORTED_MODULE_3__atoms_Tile___default.a
     },
 
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_echo__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3_vue_save_state___default.a],
+    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_echo__["a" /* default */], __WEBPACK_IMPORTED_MODULE_4_vue_save_state___default.a],
 
     props: ['position'],
 
@@ -1845,6 +1849,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        emoji: __WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* emoji */],
+
         getEventHandlers: function getEventHandlers() {
             var _this = this;
 
@@ -1949,6 +1955,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {},
 
     methods: {
+        emoji: __WEBPACK_IMPORTED_MODULE_5__helpers__["b" /* emoji */],
+
         getEventHandlers: function getEventHandlers() {
             var _this = this;
 
@@ -49511,7 +49519,8 @@ var render = function() {
     [
       _c("div", { staticClass: "absolute pin overflow-hidden p-padding " }, [
         _c("div", { staticClass: "text-lg text-center w-full mb-2" }, [
-          _vm._v(" Deploy stats 📡")
+          _vm._v(" Deploy stats "),
+          _c("span", { domProps: { innerHTML: _vm._s(_vm.emoji("📡")) } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
@@ -49750,8 +49759,12 @@ var render = function() {
                     },
                     [
                       deploy.status == "success"
-                        ? _c("div", [_vm._v("👍")])
-                        : _c("div", [_vm._v("👎")]),
+                        ? _c("div", {
+                            domProps: { innerHTML: _vm._s(_vm.emoji("👍")) }
+                          })
+                        : _c("div", {
+                            domProps: { innerHTML: _vm._s(_vm.emoji("👎")) }
+                          }),
                       _vm._v(" "),
                       _c("div", { staticClass: "leading-tight min-w-0" }, [
                         _c("div", {
@@ -50123,11 +50136,9 @@ var render = function() {
         [
           _c("div", { staticClass: "text-center flex items-center" }, [
             _c("div", { staticClass: "text-xl" }, [
-              _vm._v(
-                "\n                " + _vm._s(_vm.emoji) + "\n                "
-              ),
-              _c("br"),
-              _vm._v("\n                " + _vm._s(_vm.text) + "\n            ")
+              _c("p", { domProps: { innerHTML: _vm._s(_vm.emoji(_vm.icon)) } }),
+              _vm._v(" "),
+              _c("p", { domProps: { innerHTML: _vm._s(_vm.text) } })
             ])
           ])
         ]

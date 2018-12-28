@@ -8,19 +8,19 @@
 
     <dashboard class="font-sans">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a24"></twitter>
-        <blank-tile  position="b1:b8"  text="Uptime robot" emoji="🆘"></blank-tile>
+        <blank-tile  position="b1:b8"  text="Uptime robot" icon="🆘"></blank-tile>
         <lunch  position="b9:b16" ></lunch>
-        <blank-tile  position="b17:b24" text="Music" emoji="🎧"></blank-tile>
+        <blank-tile  position="b17:b24" text="Music" icon="🎧"></blank-tile>
         <deploy-kpi  position="c1:c4" ></deploy-kpi>
         <deploys  position="c5:c16"></deploys>
-        <blank-tile position="c17:d24" text="Google calendar" emoji="📅"></blank-tile>
-        <blank-tile  position="d1:d8" text="Fun stats" emoji="👻"></blank-tile>
-        <blank-tile  position="d9:d16" text="Gaming stats" emoji="🎮"></blank-tile>
+        <blank-tile position="c17:d24" text="Google calendar" icon="📅"></blank-tile>
+        <blank-tile  position="d1:d8" text="Fun stats" icon="👻"></blank-tile>
+        <blank-tile  position="d9:d16" text="Gaming stats" icon="🎮"></blank-tile>
         {{--<blank-tile  position="d17:d24"></blank-tile>--}}
         <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Europe/Copenhagen" weather-city="Copenhagen"></time-weather>
         <internet-connection position="e1:e6"></internet-connection>
         <trains  position="e7:e16" ></trains>
-        <user-images  position="e17:e24" text="Chatbot pushed gifs" emoji="🎡"></user-images>
+        <user-images  position="e17:e24" text="Chatbot pushed gifs" icon="🎡"></user-images>
     </dashboard>
     <reload-page></reload-page>
 
