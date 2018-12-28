@@ -1,16 +1,16 @@
 <template>
     <tile :position="position">
-        <ul class="grid" style="grid-auto-rows: auto;">
-            <li
-                    class="overflow-hidden pb-4 mb-4 border-b-2 border-screen"
-                    v-for="lunch in lunch_items"
-            >
-               <div>
-                    <p class="mb-0 text-sm">{{lunch.headline}}<span class="ml-2 text-md" v-html="specifyEmoji(lunch.headline)"></span></p>
-                    <p class="text-xs" v-html="lunch.body"></p>
-               </div>
-            </li>
-        </ul>
+        <div >
+            <carousel :per-page="1" :autoplay="true" :autoplayTimeout="5000" :loop="true" :paginationEnabled="false" :speed="1500">
+                <slide v-for="lunches in lunch_split"  v-bind:key="lunches[0].id">
+                    <div class="lunch-box text-center" v-for="lunch in lunches"  v-bind:key="lunch.id">
+                        <h2 class="mb-0 text-sm text-center">{{lunch.headline}}<span class="ml-2 text-md" v-html="specifyEmoji(lunch.headline)"></span></h2>
+                        <p class="text-xs" v-html="lunch.body"></p>
+                    </div>
+                </slide>
+            </carousel>
+
+        </div>
     </tile>
 </template>
 
@@ -38,6 +38,19 @@
             return {
                 lunch_items: [],
             };
+        },
+
+        computed: {
+            // a computed getter
+            lunch_split: function () {
+               var split = this.lunch_items.reduce(function(result, value, index, array) {
+                    if (index % 2 === 0)
+                        result.push(array.slice(index, index + 2));
+                    return result;
+                }, []);
+
+               return split;
+            }
         },
 
         methods: {
@@ -75,3 +88,9 @@
 
     };
 </script>
+
+<style>
+    .lunch-box{
+        padding: 0.7rem 0;
+    }
+</style>

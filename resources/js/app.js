@@ -3,6 +3,9 @@ import './bootstrap.js';
 import Echo from 'laravel-echo';
 import Vue from 'vue';
 
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+
 import Dashboard from './components/Dashboard';
 import Calendar from './components/Calendar';
 import Statistics from './components/Statistics';
@@ -20,7 +23,6 @@ import Deploys from './components/Deploys';
 import DeployKpi from './components/DeployKpi';
 import ReloadPage from './components/ReloadPage';
 import UserImages from './components/UserImages.vue'
-
 
 new Vue({
     el: '#dashboard',
