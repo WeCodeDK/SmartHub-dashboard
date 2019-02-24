@@ -2,7 +2,7 @@
 
 @section('content')
 
-@javascript(compact('pusherKey', 'clientConnectionPath', 'environment', 'pusherCluster'))
+@javascript(compact('pusherKey', 'clientConnectionPath', 'environment', 'openWeatherMapKey'))
 {{-- 5 columns and 12 rows.--}}
 <div id="dashboard">
 

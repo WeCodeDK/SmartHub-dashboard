@@ -14,6 +14,7 @@ class DashboardController
             'clientConnectionPath' => config('websockets.client_connection_path'),
             'environment' => app()->environment(),
             'initialTweets' => TweetHistory::all(),
+            'openWeatherMapKey' => config('services.open_weather_map.key'),
         ]);
     }
 }

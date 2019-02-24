@@ -2455,7 +2455,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             time: '',
             weather: {
                 temperature: '',
-                iconClass: ''
+                icons: []
             },
             rainForecasts: []
         };
@@ -2487,82 +2487,33 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         },
         fetchWeather: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-                var conditions, icon;
+                var condition, icons;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
-                                return __WEBPACK_IMPORTED_MODULE_5__services_weather_Weather__["a" /* default */].conditions(this.weatherCity);
+                                return __WEBPACK_IMPORTED_MODULE_5__services_weather_Weather__["a" /* default */].forCity(this.weatherCity);
 
                             case 2:
-                                conditions = _context.sent;
-                                icon = void 0;
-                                _context.t0 = parseInt(conditions.code);
-                                _context.next = _context.t0 === 0 ? 7 : _context.t0 === 1 ? 7 : _context.t0 === 2 ? 7 : _context.t0 === 3 ? 9 : _context.t0 === 4 ? 9 : _context.t0 === 37 ? 9 : _context.t0 === 38 ? 9 : _context.t0 === 39 ? 9 : _context.t0 === 45 ? 9 : _context.t0 === 47 ? 9 : _context.t0 === 5 ? 11 : _context.t0 === 6 ? 11 : _context.t0 === 7 ? 11 : _context.t0 === 8 ? 11 : _context.t0 === 9 ? 11 : _context.t0 === 10 ? 11 : _context.t0 === 17 ? 11 : _context.t0 === 18 ? 11 : _context.t0 === 11 ? 13 : _context.t0 === 12 ? 13 : _context.t0 === 35 ? 13 : _context.t0 === 40 ? 13 : _context.t0 === 13 ? 15 : _context.t0 === 14 ? 15 : _context.t0 === 15 ? 15 : _context.t0 === 16 ? 15 : _context.t0 === 42 ? 15 : _context.t0 === 46 ? 15 : _context.t0 === 19 ? 17 : _context.t0 === 20 ? 17 : _context.t0 === 21 ? 17 : _context.t0 === 22 ? 17 : _context.t0 === 23 ? 19 : _context.t0 === 24 ? 19 : _context.t0 === 25 ? 19 : _context.t0 === 26 ? 21 : _context.t0 === 27 ? 23 : _context.t0 === 28 ? 23 : _context.t0 === 29 ? 23 : _context.t0 === 30 ? 23 : _context.t0 === 44 ? 23 : _context.t0 === 31 ? 25 : _context.t0 === 33 ? 25 : _context.t0 === 32 ? 27 : _context.t0 === 34 ? 27 : _context.t0 === 36 ? 29 : _context.t0 === 41 ? 31 : _context.t0 === 43 ? 31 : 33;
-                                break;
+                                condition = _context.sent;
+                                icons = [];
 
-                            case 7:
-                                icon = '🌪';
-                                return _context.abrupt('break', 34);
 
-                            case 9:
-                                icon = '⛈';
-                                return _context.abrupt('break', 34);
+                                console.log(condition);
 
-                            case 11:
-                                icon = '🌨';
-                                return _context.abrupt('break', 34);
+                                condition.weather.forEach(function (weatherCondition) {
+                                    var isNight = weatherCondition.icon.includes('n');
 
-                            case 13:
-                                icon = '☔️';
-                                return _context.abrupt('break', 34);
+                                    var icon = __WEBPACK_IMPORTED_MODULE_5__services_weather_Weather__["a" /* default */].getEmoji(weatherCondition.id, isNight);
 
-                            case 15:
-                                icon = '❄️';
-                                return _context.abrupt('break', 34);
+                                    icons.push(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* emoji */])(icon));
+                                });
 
-                            case 17:
-                                icon = '🌫';
-                                return _context.abrupt('break', 34);
+                                this.weather.temperature = condition.main.temp.toFixed(1);
+                                this.weather.icons = icons;
 
-                            case 19:
-                                icon = '💨';
-                                return _context.abrupt('break', 34);
-
-                            case 21:
-                                icon = '☁️';
-                                return _context.abrupt('break', 34);
-
-                            case 23:
-                                icon = '⛅️';
-                                return _context.abrupt('break', 34);
-
-                            case 25:
-                                icon = '🌌';
-                                return _context.abrupt('break', 34);
-
-                            case 27:
-                                icon = '☀️';
-                                return _context.abrupt('break', 34);
-
-                            case 29:
-                                icon = '🌡';
-                                return _context.abrupt('break', 34);
-
-                            case 31:
-                                icon = '⛷';
-                                return _context.abrupt('break', 34);
-
-                            case 33:
-                                icon = '🧐';
-
-                            case 34:
-
-                                this.weather.temperature = conditions.temp;
-                                this.weather.icon = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* emoji */])(icon);
-
-                            case 36:
+                            case 8:
                             case 'end':
                                 return _context.stop();
                         }
@@ -2951,6 +2902,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2972,7 +2928,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             images: [],
-            images_waiting_line: []
+            images_waiting_line: [],
+            grid: [0, 1, 2, 3],
+            tile: ['box1', 'box2', 'box3', 'box4']
         };
     },
     created: function created() {},
@@ -4053,6 +4011,21 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 // module
 exports.push([module.i, "\n.lunch-box {\n  padding: .7rem 0;\n}\n.VueCarousel {\n  width: 100%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63a6f94e\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/js/components/UserImages.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.gif-container[data-v-63a6f94e] {\n  height: 50%;\n  padding: .25rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.box1[data-v-63a6f94e] {\n  border-bottom: 1px solid lightgrey;\n  border-right: 1px solid lightgrey;\n}\n.box2[data-v-63a6f94e] {\n  border-bottom: 1px solid lightgrey;\n}\n.box3[data-v-63a6f94e] {\n  border-right: 1px solid lightgrey;\n}\n.box4[data-v-63a6f94e] {\n}\n", ""]);
 
 // exports
 
@@ -49749,11 +49722,14 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("span", {
-                staticClass: "text-2xl",
-                domProps: { innerHTML: _vm._s(_vm.weather.icon) }
+              _vm._l(_vm.weather.icons, function(icon) {
+                return _c("span", {
+                  staticClass: "text-2xl",
+                  domProps: { innerHTML: _vm._s(icon) }
+                })
               })
-            ]
+            ],
+            2
           ),
           _vm._v(" "),
           _c("div", { staticClass: "hidden" }, [
@@ -49906,7 +49882,7 @@ if (false) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-63a6f94e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/UserImages.vue":
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-63a6f94e\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/UserImages.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49918,12 +49894,18 @@ var render = function() {
     { staticClass: "z-10", attrs: { position: _vm.position } },
     [
       _c(
-        "ul",
-        { staticClass: "grid", staticStyle: { "grid-auto-rows": "auto" } },
-        _vm._l(_vm.images, function(image) {
-          return _c("li", { staticClass: "overflow-hidden pb-4" }, [
-            _c("div", [_c("img", { attrs: { src: image } })])
-          ])
+        "div",
+        { staticClass: "flex flex-wrap content-center h-full" },
+        _vm._l(_vm.grid, function(g) {
+          return _c(
+            "div",
+            { staticClass: "w-1/2 gif-container", class: [_vm.tile[g]] },
+            [
+              _vm.images[g]
+                ? _c("img", { attrs: { src: _vm.images[g] } })
+                : _vm._e()
+            ]
+          )
         })
       )
     ]
@@ -50405,6 +50387,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-42dd96cf\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Lunch.vue", function() {
      var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-42dd96cf\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Lunch.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63a6f94e\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/js/components/UserImages.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63a6f94e\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/js/components/UserImages.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("cb66b136", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63a6f94e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UserImages.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63a6f94e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UserImages.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -62578,17 +62587,21 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63a6f94e\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/js/components/UserImages.vue")
+}
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/UserImages.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-63a6f94e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/UserImages.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-63a6f94e\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/UserImages.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-63a6f94e"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -63142,21 +63155,21 @@ var Weather = function () {
     }
 
     _createClass(Weather, [{
-        key: 'conditions',
+        key: 'forCity',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(city) {
-                var query, response;
+                var key, response;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                query = 'select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text=\'' + city + '\') and u=\'c\'';
+                                key = window.dashboard.openWeatherMapKey;
                                 _context.next = 3;
-                                return this.performQuery(query);
+                                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key + '&units=metric');
 
                             case 3:
                                 response = _context.sent;
-                                return _context.abrupt('return', response.data.query.results.channel.item.condition);
+                                return _context.abrupt('return', response.data);
 
                             case 5:
                             case 'end':
@@ -63166,42 +63179,59 @@ var Weather = function () {
                 }, _callee, this);
             }));
 
-            function conditions(_x) {
+            function forCity(_x) {
                 return _ref.apply(this, arguments);
             }
 
-            return conditions;
+            return forCity;
         }()
     }, {
-        key: 'performQuery',
-        value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(query) {
-                var endpoint;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                endpoint = 'https://query.yahooapis.com/v1/public/yql?q=' + query + '&format=json';
-                                _context2.next = 3;
-                                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(endpoint);
+        key: 'getEmoji',
+        value: function getEmoji(weatherId, isNight) {
+            var group = parseInt(weatherId.toString().charAt(0));
 
-                            case 3:
-                                return _context2.abrupt('return', _context2.sent);
-
-                            case 4:
-                            case 'end':
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this);
-            }));
-
-            function performQuery(_x2) {
-                return _ref2.apply(this, arguments);
+            if (group === 2) {
+                return '⛈';
             }
 
-            return performQuery;
-        }()
+            if (group === 3) {
+                return '☔';
+            }
+
+            if (group === 5) {
+                return '☔';
+            }
+
+            if (group === 6) {
+                return '🌨☃';
+            }
+
+            if (weatherId >= 700 && weatherId <= 762) {
+                return '🌫';
+            }
+
+            if (weatherId === 781) {
+                return '🌪';
+            }
+
+            if (weatherId === 771) {
+                return '💨';
+            }
+
+            if (weatherId === 800) {
+                return isNight ? '🌌' : '☀';
+            }
+
+            if (weatherId === 801) {
+                return '⛅';
+            }
+
+            if (group === 8) {
+                return '☁';
+            }
+
+            return '🧐';
+        }
     }]);
 
     return Weather;

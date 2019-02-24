@@ -23,8 +23,12 @@ return [
     ],
 
     'buienradar' => [
-        'latitude' => env('BUIENRADAR_LATITUDE'),
-        'longitude' => env('BUIENRADAR_LONGITUDE'),
+        'latitude' => env('BUIENRADAR_LATITUDE', '55.676098'),
+        'longitude' => env('BUIENRADAR_LONGITUDE', '55.676098'),
+    ],
+
+    'open_weather_map' => [
+        'key' => env('OPEN_WEATHER_MAP_KEY'),
     ],
 
     'slack' => [

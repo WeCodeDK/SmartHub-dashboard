@@ -16,6 +16,7 @@ class FetchBuienradarForecastsCommand extends Command
     {
         $this->info('Fetching Buienradar forecasts...');
 
+        dd(config('services.buienradar.latitude'));
         $forecasts = $buienradar->getForecasts(config('services.buienradar.latitude'), config('services.buienradar.longitude'));
 
         event(new ForecastsFetched($forecasts));
