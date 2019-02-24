@@ -24,6 +24,7 @@ import DeployKpi from './components/DeployKpi';
 import ReloadPage from './components/ReloadPage';
 import UserImages from './components/UserImages.vue'
 
+
 new Vue({
     el: '#dashboard',
 
@@ -68,10 +69,12 @@ new Vue({
         //laravel sockets implementation
         // this.echo = new Echo(config);
 
+
         this.echo = new Echo({
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,
-            cluster: window.dashboard.pusherCluster,
+            cluster: 'eu',
         });
+
     },
 });
