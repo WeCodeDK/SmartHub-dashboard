@@ -2946,7 +2946,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
 
             this.images.unshift(this.images_waiting_line.shift());
-            this.images = this.images.slice(0, 3);
+            this.images = this.images.slice(0, 4);
         },
         getSaveStateConfig: function getSaveStateConfig() {
             return {
