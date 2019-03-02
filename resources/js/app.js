@@ -23,6 +23,7 @@ import Deploys from './components/Deploys';
 import DeployKpi from './components/DeployKpi';
 import ReloadPage from './components/ReloadPage';
 import UserImages from './components/UserImages.vue'
+import DiskSizes from './components/DiskSizes.vue'
 
 
 new Vue({
@@ -45,7 +46,8 @@ new Vue({
         Deploys,
         DeployKpi,
         ReloadPage,
-        UserImages
+        UserImages,
+        DiskSizes
     },
 
 

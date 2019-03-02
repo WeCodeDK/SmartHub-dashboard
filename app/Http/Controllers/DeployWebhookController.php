@@ -16,7 +16,6 @@ class DeployWebhookController
 {
     public function forgeDeploy(Request $request)
     {
-
         event(new ForgeDeploy($request->all()));
 
         DeployKpi::newDeploy();
@@ -26,4 +25,6 @@ class DeployWebhookController
 
         return response()->json($request->all());
     }
+
+
 }

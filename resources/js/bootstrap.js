@@ -1,5 +1,10 @@
 import moment from 'moment';
 
+
+try {
+    window.$ = window.jQuery = require('jquery');
+} catch (e) {}
+
 moment.updateLocale('en', {
     calendar: {
         lastDay: '[Yesterday]',

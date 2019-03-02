@@ -15,6 +15,7 @@ class UpdateDashboardCommand extends Command
         $this->call('dashboard:determine-appearance');
         $this->call('dashboard:dashboard:fetch-lunch');
         $this->call('dashboard:fetch-train-rejseplan');
+        $this->call('dashboard:fetch-disk');
         $this->call('dashboard:send-heartbeat');
 
 

@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Components\Buienradar\FetchBuienradarForecastsCommand;
+use App\Console\Components\Disk\DiskSizeCommand;
 use App\Console\Components\Scraper\LunchCommand;
 use App\Console\Components\Trains\FetchRejsePlanCommand;
 use App\Events\Lunch\LunchFetched;
@@ -31,6 +32,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(DetermineAppearanceCommand::class)->everyMinute();
         $schedule->command(FetchRejsePlanCommand::class)->everyFiveMinutes();
         $schedule->command(LunchCommand::class)->everyFiveMinutes();
+        $schedule->command(DiskSizeCommand::class)->everyTenMinutes();
  //       $schedule->command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
 //        $schedule->command(FetchTasksCommand::class)->everyFiveMinutes();
 //        $schedule->command(FetchStatusCommand::class)->everyFiveMinutes();

@@ -22,6 +22,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/temperature',
         '/webhook/github',
         '/webhook/forge',
+        '/webhook/disk',
         '/pusher/authenticate',
         '/oh-dear-webhooks',
         '/misc/reload',
