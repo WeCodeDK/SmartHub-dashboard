@@ -1,23 +1,7 @@
-# dashboard.spatie.be [![Composer Cache](https://shield.with.social/cc/github/spatie/dashboard.spatie.be/master.svg?style=flat-square)](https://packagist.org/packages/laravel/framework)
+# WeCode Dashboard
 
-This repo contains the source code of our dashboard.
-
-## Example
-
-<img style="max-width:100%; height: auto" src="http://spatie.github.io/dashboard.spatie.be/images/screenshot20181118.png">
-
-Our configured dashboard has following tiles:
-
-- Twitter stream with all tweets mentioning and quoting [@spatie_be](https://twitter.com/spatie_be)
-- Clock/date/weather
-- Team tile with todo's via GitHub files, remote status via Slack, current tracks via [Last.fm](https://last.fm)
-- [Packagist](https://packagist.org) downloads
-- Internet up/down via WebSockets
-- [Velo](https://www.velo-antwerpen.be/en) status
-
-## How it works
-
-Our own [Freek Van der Herten](https://twitter.com/freekmurze) gave a talk on the dashboard at Laracon EU where he explained how the dashboard works behind the screens. The talk was recorded and published [on Youtube](https://www.youtube.com/watch?v=jtB_rTh61Zo).
+# Disk Cron
+bash <(curl -sSL https://dashboard.wecode.dk/disk-monitor.sh) servername
 
 ## Installation
 
