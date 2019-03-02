@@ -1,6 +1,7 @@
 #!/bin/bash
 
-URL="http://smarthub-dashboard.test/webhook/disk"
+#URL="http://smarthub-dashboard.test/webhook/disk"
+URL="https://dashboard.wecode.dk/webhook/disk"
 
 #echo "$1"
 #echo $URL
