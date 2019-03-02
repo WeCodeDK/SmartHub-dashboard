@@ -29,10 +29,10 @@ class DiskSizeCommand extends Command
 
             //determine wich mount to look at based on biggest usage
             foreach ($disk->size_data as $mount) {
-                if (!str_contains($mount->used, 'Gi')) {
+                if (!str_contains($mount->used, 'G')) {
                     continue;
                 }
-                $gigs = (int) preg_replace("/[^0-9]/", "", $mount->used);
+                $gigs = (int) preg_replace("/^[0-9]{1,2}([,.][0-9]{1,2})?$/", "", $mount->used);
                 //echo $gigs.' '.$top."\n";
                 if ($gigs > $top) {
                     $top = $gigs;
@@ -42,8 +42,8 @@ class DiskSizeCommand extends Command
 
             //set disk size data is ints instead of string
             if ($disk->disk) {
-                $disk->disk->used = (int) preg_replace("/[^0-9]/", "", $disk->disk->used);
-                $disk->disk->spacetotal = (int) preg_replace("/[^0-9]/", "", $disk->disk->spacetotal);
+                $disk->disk->used = (int) preg_replace("/^[0-9]{1,2}([,.][0-9]{1,2})?$/", "", $disk->disk->used);
+                $disk->disk->spacetotal = (int) preg_replace("/^[0-9]{1,2}([,.][0-9]{1,2})?$/", "", $disk->disk->spacetotal);
                 $disk->disk->rate = (int) ($disk->disk->used / ($disk->disk->spacetotal / 100));
                 $disk->disk_rate = $disk->disk->rate;
             }
