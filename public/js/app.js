@@ -2093,7 +2093,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
 
             if (rate > 25 && rate < 50) {
-                return 'background: #e2d426';
+                return 'background: #f3eb00';
             }
 
             if (rate > 50 && rate < 75) {
