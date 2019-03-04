@@ -2,7 +2,7 @@
     <tile :position="position" class="z-10" >
         <ul class="grid" style="grid-auto-rows: auto;">
             <li
-                    class="overflow-hidden pb-4 mb-4 border-b-2 border-screen"
+                    class="overflow-hidden pb-2 mb-2 border-b-2 border-screen"
                     v-for="size in sizes"
             >
                 <div v-if="size.disk" class="markup grid " style="grid-auto-rows: auto" @click="animate">
@@ -11,10 +11,10 @@
                         <!--<div v-if="deploy.status == 'success'" v-html="emoji('👍')"></div>-->
                         <!--<div v-else="deploy.status == 'success'" v-html="emoji('👎')"></div>-->
                         <div class="leading-tight min-w-0 w-2/3">
-                            <div class="truncate text-xs" v-html="size.server_name"></div>
+                            <div class="truncate text-xxs" v-html="size.server_name"></div>
                         </div>
                         <div class="w-1/3">
-                            <div class="truncate text-xs">{{size.disk.used}} / {{size.disk.spacetotal}} GB</div>
+                            <div class="truncate truncate text-xxs text-right ">{{size.disk.used}} / {{size.disk.spacetotal}} GB</div>
                         </div>
                     </div>
                     <div class="skillbar clearfix " :data-percent="size.disk_rate">
@@ -130,7 +130,7 @@
         display:block;
         width:100%;
         background:#eee;
-        height:1.25rem;
+        height:.75rem;
         border-radius:3px;
         -moz-border-radius:3px;
         -webkit-border-radius:3px;
@@ -147,7 +147,7 @@
     }
 
     .skillbar-bar {
-        height:1.25rem;
+        height:.75rem;
         width:0px;
         background:#6adcfa;
         border-radius:3px;
@@ -157,11 +157,11 @@
 
     .skill-bar-percent {
         position:absolute;
-        right:0.75rem;
+        right:.5rem;
         top:0;
-        font-size:0.75rem;
-        height:1.25rem;
-        line-height:1.25rem;
+        font-size:.5rem;
+        height:.75rem;
+        line-height:.75rem;
         color:#ffffff;
         color:rgba(0, 0, 0);
     }

@@ -4140,7 +4140,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.Count:after {\n  content: \"%\";\n}\n.skillbar {\n  position: relative;\n  display: block;\n  width: 100%;\n  background: #eee;\n  height: 1.25rem;\n          border-radius: 3px;\n     -moz-border-radius: 3px;\n  -webkit-border-radius: 3px;\n  -webkit-transition: .4s linear;\n          transition: .4s linear;\n  -webkit-transition-property: width, background-color;\n          transition-property: width, background-color;\n}\n.skillbar-bar {\n  height: 1.25rem;\n  width: 0px;\n  background: #6adcfa;\n          border-radius: 3px;\n     -moz-border-radius: 3px;\n  -webkit-border-radius: 3px;\n}\n.skill-bar-percent {\n  position: absolute;\n  right: .75rem;\n  top: 0;\n  font-size: .75rem;\n  height: 1.25rem;\n  line-height: 1.25rem;\n  color: #fff;\n  color: rgba(0, 0, 0);\n}\n", ""]);
+exports.push([module.i, "\n.Count:after {\n  content: \"%\";\n}\n.skillbar {\n  position: relative;\n  display: block;\n  width: 100%;\n  background: #eee;\n  height: .75rem;\n          border-radius: 3px;\n     -moz-border-radius: 3px;\n  -webkit-border-radius: 3px;\n  -webkit-transition: .4s linear;\n          transition: .4s linear;\n  -webkit-transition-property: width, background-color;\n          transition-property: width, background-color;\n}\n.skillbar-bar {\n  height: .75rem;\n  width: 0px;\n  background: #6adcfa;\n          border-radius: 3px;\n     -moz-border-radius: 3px;\n  -webkit-border-radius: 3px;\n}\n.skill-bar-percent {\n  position: absolute;\n  right: .5rem;\n  top: 0;\n  font-size: .5rem;\n  height: .75rem;\n  line-height: .75rem;\n  color: #fff;\n  color: rgba(0, 0, 0);\n}\n", ""]);
 
 // exports
 
@@ -60757,7 +60757,7 @@ var render = function() {
           return _c(
             "li",
             {
-              staticClass: "overflow-hidden pb-4 mb-4 border-b-2 border-screen"
+              staticClass: "overflow-hidden pb-2 mb-2 border-b-2 border-screen"
             },
             [
               size.disk
@@ -60775,21 +60775,28 @@ var render = function() {
                           { staticClass: "leading-tight min-w-0 w-2/3" },
                           [
                             _c("div", {
-                              staticClass: "truncate text-xs",
+                              staticClass: "truncate text-xxs",
                               domProps: { innerHTML: _vm._s(size.server_name) }
                             })
                           ]
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "w-1/3" }, [
-                          _c("div", { staticClass: "truncate text-xs" }, [
-                            _vm._v(
-                              _vm._s(size.disk.used) +
-                                " / " +
-                                _vm._s(size.disk.spacetotal) +
-                                " GB"
-                            )
-                          ])
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "truncate truncate text-xxs text-right "
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(size.disk.used) +
+                                  " / " +
+                                  _vm._s(size.disk.spacetotal) +
+                                  " GB"
+                              )
+                            ]
+                          )
                         ])
                       ]),
                       _vm._v(" "),
