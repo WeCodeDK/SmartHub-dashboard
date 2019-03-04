@@ -1,7 +1,7 @@
 # WeCode Dashboard
 
 # Disk Cron
-`/bin/bash <(curl -sSL https://dashboard.wecode.dk/disk-monitor.sh) server_name_goes_here`
+`curl -s https://dashboard.wecode.dk/disk-monitor.sh | bash -s ServerName`
 
 ## Installation
 
